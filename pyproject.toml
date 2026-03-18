@@ -1,0 +1,15 @@
+[project]
+name = "kotlin-mcp"
+version = "0.1.0"
+description = "MCP server that summarizes Kotlin/Java files into compact structural representations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.26.0",
+    "tree-sitter>=0.25.2",
+    "tree-sitter-java>=0.23.5",
+    "tree-sitter-kotlin>=1.1.0",
+]
+
+[project.scripts]
+kotlin-mcp = "kotlin_mcp.server:main"
