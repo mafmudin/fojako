@@ -1,0 +1,45 @@
+{
+  "description": "Open-source Android/Kotlin projects for evaluation dataset",
+  "projects": [
+    {
+      "name": "nowinandroid",
+      "repo": "https://github.com/android/nowinandroid",
+      "path": "~/evaluation-datasets/nowinandroid",
+      "size_category": "large",
+      "description": "Google's official modular Android app sample (MVVM, Compose, Hilt, Kotlin coroutines)",
+      "patterns": ["Compose UI", "Hilt DI", "coroutines", "MVVM", "multi-module"]
+    },
+    {
+      "name": "tivi",
+      "repo": "https://github.com/chrisbanes/tivi",
+      "path": "~/evaluation-datasets/tivi",
+      "size_category": "large",
+      "description": "TV show tracking app (multi-module, Compose, Circuit, SQLDelight)",
+      "patterns": ["Compose UI", "Circuit", "SQLDelight", "multi-module", "coroutines"]
+    },
+    {
+      "name": "compose-samples",
+      "repo": "https://github.com/android/compose-samples",
+      "path": "~/evaluation-datasets/compose-samples",
+      "size_category": "large",
+      "description": "Official Compose sample apps collection",
+      "patterns": ["Compose UI", "various architectures", "Material Design"]
+    },
+    {
+      "name": "sunflower",
+      "repo": "https://github.com/android/sunflower",
+      "path": "~/evaluation-datasets/sunflower",
+      "size_category": "small",
+      "description": "Android Jetpack sample (Room, WorkManager, Navigation)",
+      "patterns": ["Room", "WorkManager", "MVVM", "data class"]
+    },
+    {
+      "name": "architecture-components-samples",
+      "repo": "https://github.com/android/architecture-components-samples",
+      "path": "~/evaluation-datasets/architecture-components-samples",
+      "size_category": "medium",
+      "description": "Android Architecture Components samples (various patterns)",
+      "patterns": ["LiveData", "ViewModel", "Room", "Paging", "various"]
+    }
+  ]
+}

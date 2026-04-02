@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "description": "Task definitions for RQ2: Task-Based Evaluation of structural summaries vs full source code",
+  "scoring_rubric": {
+    "1": "Completely wrong or irrelevant answer",
+    "2": "Partially relevant but mostly incorrect or missing key information",
+    "3": "Correct direction but incomplete or contains notable inaccuracies",
+    "4": "Mostly correct and complete, minor gaps or imprecisions",
+    "5": "Fully correct, complete, and well-structured answer"
+  },
+  "categories": [
+    {
+      "id": "navigation",
+      "name": "Code Navigation",
+      "description": "Tasks requiring locating specific code elements"
+    },
+    {
+      "id": "understanding",
+      "name": "Code Understanding",
+      "description": "Tasks requiring comprehension of code structure and relationships"
+    },
+    {
+      "id": "modification",
+      "name": "Code Modification Planning",
+      "description": "Tasks requiring planning changes to the codebase"
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "nav_01",
+      "category": "navigation",
+      "template": "Where is the class `{class_name}` defined? Provide the file path and package.",
+      "expected_info": "file_path, package_name",
+      "difficulty": "easy"
+    },
+    {
+      "id": "nav_02",
+      "category": "navigation",
+      "template": "What classes implement the interface `{interface_name}`?",
+      "expected_info": "list of implementing classes with file locations",
+      "difficulty": "easy"
+    },
+    {
+      "id": "nav_03",
+      "category": "navigation",
+      "template": "List all public methods of class `{class_name}`.",
+      "expected_info": "method signatures",
+      "difficulty": "easy"
+    },
+    {
+      "id": "nav_04",
+      "category": "navigation",
+      "template": "What are the constructor dependencies of `{class_name}`?",
+      "expected_info": "constructor parameter names and types",
+      "difficulty": "easy"
+    },
+    {
+      "id": "nav_05",
+      "category": "navigation",
+      "template": "Which package contains the {layer_name} layer?",
+      "expected_info": "package name(s)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "und_01",
+      "category": "understanding",
+      "template": "Explain the data flow from {source} to {destination} in this module.",
+      "expected_info": "sequence of classes/functions involved in data flow",
+      "difficulty": "hard"
+    },
+    {
+      "id": "und_02",
+      "category": "understanding",
+      "template": "What design patterns are used in this module? List them with the classes involved.",
+      "expected_info": "pattern names + participating classes",
+      "difficulty": "medium"
+    },
+    {
+      "id": "und_03",
+      "category": "understanding",
+      "template": "Describe the relationship between `{class_a}` and `{class_b}`.",
+      "expected_info": "dependency direction, type of relationship",
+      "difficulty": "medium"
+    },
+    {
+      "id": "und_04",
+      "category": "understanding",
+      "template": "Based on its signature and context, what does the function `{function_name}` in `{class_name}` do?",
+      "expected_info": "inferred purpose based on name, params, return type",
+      "difficulty": "medium"
+    },
+    {
+      "id": "und_05",
+      "category": "understanding",
+      "template": "Identify the architectural layers in this module and the key classes in each layer.",
+      "expected_info": "layers (UI, domain, data) + classes per layer",
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod_01",
+      "category": "modification",
+      "template": "Which files need to change to add a new {feature_type} for `{entity_name}`?",
+      "expected_info": "list of files to create/modify",
+      "difficulty": "hard"
+    },
+    {
+      "id": "mod_02",
+      "category": "modification",
+      "template": "Where should I add a new repository class for `{entity_name}`?",
+      "expected_info": "package, directory, naming convention",
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod_03",
+      "category": "modification",
+      "template": "What would break if I rename `{class_name}` to `{new_name}`?",
+      "expected_info": "list of dependent classes/files",
+      "difficulty": "hard"
+    },
+    {
+      "id": "mod_04",
+      "category": "modification",
+      "template": "Plan the implementation of {feature_description}. Which classes and files are involved?",
+      "expected_info": "implementation plan with files and classes",
+      "difficulty": "hard"
+    },
+    {
+      "id": "mod_05",
+      "category": "modification",
+      "template": "Identify where to add error handling for network calls in this module.",
+      "expected_info": "specific classes/methods that need error handling",
+      "difficulty": "medium"
+    }
+  ]
+}
