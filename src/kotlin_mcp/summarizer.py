@@ -1,9 +1,12 @@
+import logging
 import os
 from pathlib import Path
 
 from .parsers.base import FileSummary, ClassInfo, FunctionInfo
 from .parsers.kotlin import KotlinParser
 from .parsers.java import JavaParser
+
+logger = logging.getLogger(__name__)
 
 SKIP_PATTERNS = {"BuildConfig.kt", "R.java", "BR.java"}
 SKIP_SUFFIXES = {"Binding.kt", "Binding.java"}
@@ -65,12 +68,30 @@ def summarize_module(path: str, depth: int | None = None) -> str:
         lines.append(_format_summary(s))
         lines.append("")
 
-    return "\n".join(lines)
+    output = "\n".join(lines)
+    _auto_save(root, output)
+    return output
+
+
+def _auto_save(root: Path, output: str) -> None:
+    """Save summary to .kotlin-summary/{module_name}.md inside the target directory."""
+    try:
+        summary_dir = root / ".kotlin-summary"
+        summary_dir.mkdir(exist_ok=True)
+        dest = summary_dir / f"{root.name}.md"
+        dest.write_text(output, encoding="utf-8")
+        logger.info("Summary saved to %s", dest)
+    except OSError as e:
+        logger.warning("Failed to save summary to %s: %s", root / ".kotlin-summary", e)
 
 
 def _collect_files(root: Path, depth: int | None) -> list[Path]:
     files: list[Path] = []
     for dirpath, dirnames, filenames in os.walk(root):
+        # Skip our own output directory
+        if ".kotlin-summary" in dirnames:
+            dirnames.remove(".kotlin-summary")
+
         if depth is not None:
             rel = Path(dirpath).relative_to(root)
             if len(rel.parts) >= depth:
