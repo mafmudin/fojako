@@ -11,6 +11,12 @@ dependencies = [
     "tree-sitter-kotlin>=1.1.0",
 ]
 
+license = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/mafmudin/fojako"
+Repository = "https://github.com/mafmudin/fojako"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
